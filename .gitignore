@@ -1,1 +1,5 @@
 Plan.md
+__pycache__/
+*.py[cod]
+results.jsonl
+.env
