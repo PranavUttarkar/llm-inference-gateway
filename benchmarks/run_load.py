@@ -20,6 +20,7 @@ def request(index):
     start = time.monotonic()
     first = None
     content = []
+    done = False
     row = {'id': index, 'concurrency': args.concurrency, 'model': args.model}
     body = json.dumps({'model': args.model, 'messages': [{'role': 'user', 'content': 'Explain tensor parallelism briefly.'}], 'stream': True, 'max_tokens': 128, 'temperature': 0}).encode()
     req = urllib.request.Request(args.url, body, {'Content-Type': 'application/json'})
@@ -32,6 +33,7 @@ def request(index):
                     continue
                 data = line[5:].strip()
                 if data == '[DONE]':
+                    done = True
                     break
                 event = json.loads(data)
                 choices = event.get('choices', [])
@@ -42,7 +44,9 @@ def request(index):
                     content.append(text)
                 if event.get('usage'):
                     row['usage'] = event['usage']
-        row['completed'] = True
+        row['completed'] = done and first is not None
+        if not row['completed']:
+            row['error'] = 'stream ended without content or [DONE]'
     except (OSError, ValueError, urllib.error.URLError) as exc:
         row.update(completed=False, status=getattr(exc, 'code', None), error=str(exc))
     row.update(ttft_seconds=first, elapsed_seconds=time.monotonic()-start, output_text=''.join(content))
