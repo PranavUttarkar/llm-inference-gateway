@@ -5,3 +5,4 @@ results.jsonl
 .env
 
 *.summary.json
+artifacts/
