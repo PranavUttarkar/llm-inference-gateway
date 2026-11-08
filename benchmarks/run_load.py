@@ -1,6 +1,7 @@
-﻿"""Measure streaming chat requests; token totals require server-provided usage."""
+"""Measure streaming chat requests; token totals require server-provided usage."""
 import argparse
 import concurrent.futures
+import hashlib
 import json
 import math
 import time
@@ -36,7 +37,9 @@ def request(index, args):
     start = time.monotonic()
     first, content, done, usage = None, [], False, None
     row = {'id': index, 'concurrency': args.concurrency, 'model': args.model}
-    payload = {'model': args.model, 'messages': [{'role': 'user', 'content': args.prompt}],
+    prompt = args.prompts[index % len(args.prompts)] if hasattr(args, 'prompts') else args.prompt
+    row['prompt_index'] = index % len(args.prompts) if hasattr(args, 'prompts') else 0
+    payload = {'model': args.model, 'messages': [{'role': 'user', 'content': prompt}],
                'stream': True, 'max_tokens': args.max_tokens, 'temperature': 0}
     if args.include_usage:
         payload['stream_options'] = {'include_usage': True}
@@ -90,11 +93,22 @@ def main():
     p.add_argument('--max-tokens', type=int, default=128)
     p.add_argument('--timeout', type=float, default=60, help='socket inactivity timeout in seconds')
     p.add_argument('--prompt', default='Explain tensor parallelism briefly.')
+    p.add_argument('--workload', help='path to a JSON array of prompts, assigned round-robin')
+    p.add_argument('--label', default='', help='run label, for example tp1')
     p.add_argument('--include-usage', action='store_true', help='request streaming usage, if supported by backend')
     p.add_argument('--output', default='results.jsonl')
     args = p.parse_args()
     if min(args.concurrency, args.requests, args.max_tokens) < 1 or args.warmup < 0 or args.timeout <= 0:
         p.error('requests, concurrency, max-tokens and timeout must be positive; warmup must be nonnegative')
+    if args.workload:
+        with open(args.workload, encoding='utf-8-sig') as f:
+            prompts = json.load(f)
+        if not isinstance(prompts, list) or not prompts or any(not isinstance(x, str) or not x for x in prompts):
+            p.error('workload must be a nonempty JSON array of nonempty strings')
+    else:
+        prompts = [args.prompt]
+    args.prompts = prompts
+    workload_hash = hashlib.sha256(json.dumps(prompts, ensure_ascii=False, separators=(',', ':')).encode('utf-8')).hexdigest()
     for i in range(args.warmup):
         result = request(-1-i, args)
         if not result['completed']:
@@ -107,7 +121,8 @@ def main():
     with open(args.output, 'w', encoding='utf-8') as f:
         for row in rows:
             f.write(json.dumps(row) + '\n')
-    summary = {'started_at_utc': started_at, 'parameters': vars(args), 'results': summarize(rows, elapsed)}
+    summary = {'started_at_utc': started_at, 'workload_sha256': workload_hash,
+               'parameters': vars(args), 'results': summarize(rows, elapsed)}
     with open(args.output + '.summary.json', 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2)
         f.write('\n')

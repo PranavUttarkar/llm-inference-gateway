@@ -1,0 +1,10 @@
+[
+  "Explain tensor parallelism in two sentences.",
+  "Explain why batching can improve inference throughput.",
+  "Describe the difference between latency and throughput.",
+  "Give three ways to reduce the memory required to serve a language model.",
+  "Summarize how a queue can affect request latency.",
+  "Explain what a GPU interconnect does in distributed inference.",
+  "What does time to first token measure? Answer briefly.",
+  "Describe one tradeoff involved in using a larger language model."
+]
