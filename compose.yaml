@@ -1,0 +1,32 @@
+services:
+  mock:
+    build: .
+    command: python -m tests.mock_upstream
+    environment:
+      HOST: 0.0.0.0
+  gateway:
+    build: .
+    command: python -m gateway.server
+    environment:
+      HOST: 0.0.0.0
+      UPSTREAM_URL: http://mock:9000
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - mock
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "127.0.0.1:9090:9090"
+    depends_on:
+      - gateway
+  grafana:
+    image: grafana/grafana:12.1.0
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./monitoring/grafana:/etc/grafana/provisioning:ro
+    depends_on:
+      - prometheus
