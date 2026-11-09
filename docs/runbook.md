@@ -1,6 +1,6 @@
 # GPU experiment runbook
 
-The mock stack has been validated locally. The GPU configuration has **not** been run on a GPU; mock timings are not inference results. The [r25.08 frontend source](https://github.com/triton-inference-server/server/blob/r25.08/python/openai/openai_frontend/engine/triton_engine.py) emits SSE data events, an optional final usage event and `[DONE]`. Validate the actual image, token accounting, and TP=2 on a GPU before measuring.
+The mock stack has been validated locally. The GPU configuration has also been smoke-tested for TP=1 and TP=2 on one Vast VM with two RTX 4090 GPUs; a VM-specific runtime setup was necessary and other hosts still need validation. Mock timings are not inference results. The [r25.08 frontend source](https://github.com/triton-inference-server/server/blob/r25.08/python/openai/openai_frontend/engine/triton_engine.py) emits SSE data events, an optional final usage event and `[DONE]`. Verify the actual image, token accounting, and TP=2 on each host before measuring.
 
 ## Version set
 
