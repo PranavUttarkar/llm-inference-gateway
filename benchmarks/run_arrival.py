@@ -4,6 +4,7 @@ import concurrent.futures
 import hashlib
 import json
 import math
+import threading
 import time
 from collections import Counter
 from datetime import datetime, timezone
@@ -42,6 +43,7 @@ def main():
     workload_hash=hashlib.sha256(json.dumps(args.prompts,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()
     started_at=datetime.now(timezone.utc).isoformat()
     start=time.monotonic()
+    write_lock=threading.Lock()
     def send(i, planned):
         actual=time.monotonic()
         row=request(i,args)
@@ -51,8 +53,12 @@ def main():
         row['dispatch_lag_seconds']=lag
         row['schedule_to_first_content_seconds']=lag+row['ttft_seconds'] if row['ttft_seconds'] is not None else None
         row['schedule_to_completion_seconds']=lag+row['elapsed_seconds']
+        row['completed_at_utc']=datetime.now(timezone.utc).isoformat()
+        with write_lock:
+            raw_output.write(json.dumps(row)+'\n')
+            raw_output.flush()
         return row
-    with concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
+    with open(args.output,'w',encoding='utf-8') as raw_output, concurrent.futures.ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures=[]
         for i in range(count):
             planned=start+i/args.rate
@@ -65,8 +71,6 @@ def main():
         remaining=start+args.duration-time.monotonic()
         if remaining>0: time.sleep(remaining)
     wall=time.monotonic()-start
-    with open(args.output,'w',encoding='utf-8') as f:
-        for row in rows: f.write(json.dumps(row)+'\n')
     ok=[r for r in rows if r['completed']]
     good=[r for r in ok if r['schedule_to_first_content_seconds']*1000 <= args.ttft_slo_ms and r['schedule_to_completion_seconds']*1000 <= args.latency_slo_ms]
     def qs(key,values):
