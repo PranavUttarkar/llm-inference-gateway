@@ -6,3 +6,4 @@ results.jsonl
 
 *.summary.json
 artifacts/
+docs/

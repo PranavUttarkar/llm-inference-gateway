@@ -30,12 +30,17 @@ def main():
     if len(revision) != 40 or any(c not in '0123456789abcdef' for c in revision):
         raise ValueError('MODEL_REVISION must be a full lowercase commit SHA')
     model_config('/placeholder', tp, max_num_seqs)  # validate before downloading
+    memory_fraction = float(os.environ.get('GPU_MEMORY_UTILIZATION', '0.8'))
+    if not 0 < memory_fraction < 1:
+        raise ValueError('GPU_MEMORY_UTILIZATION must be between zero and one')
     snapshot = snapshot_download(repo_id=model, revision=revision)
     repo = pathlib.Path('/tmp/gateway-models')
     model_dir = repo / 'qwen' / '1'
     model_dir.mkdir(parents=True, exist_ok=True)
     (model_dir.parent / 'config.pbtxt').write_text('backend: "vllm"\ninstance_group [{kind: KIND_MODEL}]\n')
-    (model_dir / 'model.json').write_text(json.dumps(model_config(snapshot, tp, max_num_seqs)))
+    config = model_config(snapshot, tp, max_num_seqs)
+    config['gpu_memory_utilization'] = memory_fraction
+    (model_dir / 'model.json').write_text(json.dumps(config))
     os.chdir('/opt/tritonserver/python/openai')
     os.execv(sys.executable, [sys.executable, 'openai_frontend/main.py', '--model-repository', str(repo),
                               '--tokenizer', snapshot, '--host', '0.0.0.0'])
