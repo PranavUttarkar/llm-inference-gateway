@@ -1,6 +1,6 @@
 # Two-GPU rental: Lambda walkthrough
 
-This is a plan, not a reservation. Prices and inventory were checked on 2026-11-08; confirm the exact offer and total before launching. No one has validated this project's GPU deployment yet.
+This is the historical Lambda rental plan, not the environment used for the published results. The project was subsequently validated on Vast VMs with two RTX 4090s; see the [32B guide](32b-experiment.md) and [published results](../results/README.md). Prices and inventory below were checked on 2026-11-08 and are not current offers. Confirm the exact offer and total before any future rental.
 
 ## Why Lambda
 

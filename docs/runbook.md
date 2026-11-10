@@ -1,5 +1,9 @@
 # GPU experiment runbook
 
+## Current status
+
+GPU serving and measurements are complete: [32B admission control](../results/32b-admission/report.md), [7B TP=1 versus TP=2](../results/7b-tensor-parallel/report.md), and [7B sequence capacity](../results/7b-sequence-capacity/report.md). Use the [32B guide](32b-experiment.md) for the final deployment and measured experiment. The base commands below retain the original small-model smoke test; they do not reproduce the 32B result without its Compose overlay. See [project status](project-status.md) for completed milestones and remaining billing closeout.
+
 The mock stack has been validated locally. The GPU configuration has also been smoke-tested for TP=1 and TP=2 on one Vast VM with two RTX 4090 GPUs; a VM-specific runtime setup was necessary and other hosts still need validation. Mock timings are not inference results. The [r25.08 frontend source](https://github.com/triton-inference-server/server/blob/r25.08/python/openai/openai_frontend/engine/triton_engine.py) emits SSE data events, an optional final usage event and `[DONE]`. Verify the actual image, token accounting, and TP=2 on each host before measuring.
 
 ## Version set
