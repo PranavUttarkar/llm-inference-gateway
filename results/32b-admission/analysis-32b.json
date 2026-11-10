@@ -1,0 +1,297 @@
+{
+  "workload_sha256": "47aec296b76eb16e063c0ab3a1ce58027d84108497d767c1952ba4c16cc9fe10",
+  "targets": {
+    "ttft_seconds": 0.5,
+    "completion_seconds": 10,
+    "kind": "illustrative"
+  },
+  "note": "Uniform scheduled arrivals. Percentiles cover successful requests, including queue time from scheduled dispatch. Rejections stay in offered-request and goodput denominators. One five-minute run per case; no production SLA or quality claim.",
+  "cases": [
+    {
+      "label": "reference-cap32-rate4-300s",
+      "gateway_cap": 32,
+      "offered_rate": 4,
+      "started_at_utc": "2026-11-09T06:56:11.682090+00:00",
+      "arrival_seconds": 300,
+      "wall_seconds_including_drain": 304.2544752240001,
+      "offered": 1200,
+      "successes": 800,
+      "statuses": {
+        "429": 400,
+        "200": 800
+      },
+      "within_targets": 173,
+      "fraction_of_offered_within_targets": 0.14416666666666667,
+      "fraction_of_successes_within_targets": 0.21625,
+      "goodput_per_full_run_second": 0.5686029757578188,
+      "successful_output_tokens_per_second": 336.5603740901771,
+      "completion_tokens": 102400,
+      "schedule_to_first_content_seconds": {
+        "p50": 0.24827158799985227,
+        "p95": 0.31828729020004404,
+        "p99": 0.3608181672899104
+      },
+      "schedule_to_completion_seconds": {
+        "p50": 11.340731354999889,
+        "p95": 11.931045347249993,
+        "p99": 12.086266079749905
+      },
+      "dispatch_lag_seconds": {
+        "p50": 0.00034145699999044155,
+        "p95": 0.0004039789000444216,
+        "p99": 0.0005474295799172068
+      },
+      "max_dispatch_lag_seconds": 0.006262862000085079,
+      "observed_dispatch_rate_in_window": 4.0,
+      "minutes": [
+        {
+          "arrival_minute": 1,
+          "offered": 240,
+          "successes": 160,
+          "within_targets": 0,
+          "completion_seconds": {
+            "p50": 11.344246819499972,
+            "p95": 11.853390531899946,
+            "p99": 12.011903929769966
+          }
+        },
+        {
+          "arrival_minute": 2,
+          "offered": 240,
+          "successes": 160,
+          "within_targets": 10,
+          "completion_seconds": {
+            "p50": 11.59224063900001,
+            "p95": 11.990491737250101,
+            "p99": 12.081350659930067
+          }
+        },
+        {
+          "arrival_minute": 3,
+          "offered": 240,
+          "successes": 160,
+          "within_targets": 60,
+          "completion_seconds": {
+            "p50": 10.329403666000076,
+            "p95": 11.841940622400147,
+            "p99": 12.067348126939926
+          }
+        },
+        {
+          "arrival_minute": 4,
+          "offered": 240,
+          "successes": 160,
+          "within_targets": 61,
+          "completion_seconds": {
+            "p50": 10.587246671999878,
+            "p95": 11.8333079399,
+            "p99": 12.020496983069874
+          }
+        },
+        {
+          "arrival_minute": 5,
+          "offered": 240,
+          "successes": 160,
+          "within_targets": 42,
+          "completion_seconds": {
+            "p50": 11.360140286499927,
+            "p95": 11.973736290749969,
+            "p99": 12.323741495289907
+          }
+        }
+      ]
+    },
+    {
+      "label": "protected-cap16-rate2-300s",
+      "gateway_cap": 16,
+      "offered_rate": 2,
+      "started_at_utc": "2026-11-09T07:01:40.858210+00:00",
+      "arrival_seconds": 300,
+      "wall_seconds_including_drain": 303.4676639899999,
+      "offered": 600,
+      "successes": 599,
+      "statuses": {
+        "200": 599,
+        "429": 1
+      },
+      "within_targets": 597,
+      "fraction_of_offered_within_targets": 0.995,
+      "fraction_of_successes_within_targets": 0.996661101836394,
+      "goodput_per_full_run_second": 1.9672606700517286,
+      "successful_output_tokens_per_second": 252.65294823150106,
+      "completion_tokens": 76672,
+      "schedule_to_first_content_seconds": {
+        "p50": 0.24596598400012226,
+        "p95": 0.26704629810017194,
+        "p99": 0.38787535704008386
+      },
+      "schedule_to_completion_seconds": {
+        "p50": 7.369945220000091,
+        "p95": 7.438965224600201,
+        "p99": 7.545786457220352
+      },
+      "dispatch_lag_seconds": {
+        "p50": 0.0005924385000071197,
+        "p95": 0.0006381726500876538,
+        "p99": 0.0007845032300315324
+      },
+      "max_dispatch_lag_seconds": 0.0016335630000412493,
+      "observed_dispatch_rate_in_window": 2.0,
+      "minutes": [
+        {
+          "arrival_minute": 1,
+          "offered": 120,
+          "successes": 120,
+          "within_targets": 120,
+          "completion_seconds": {
+            "p50": 7.348919287000058,
+            "p95": 7.439514606150032,
+            "p99": 7.48184262265029
+          }
+        },
+        {
+          "arrival_minute": 2,
+          "offered": 120,
+          "successes": 120,
+          "within_targets": 120,
+          "completion_seconds": {
+            "p50": 7.356658667000033,
+            "p95": 7.390470995449914,
+            "p99": 7.397252231080051
+          }
+        },
+        {
+          "arrival_minute": 3,
+          "offered": 120,
+          "successes": 120,
+          "within_targets": 120,
+          "completion_seconds": {
+            "p50": 7.383574715500117,
+            "p95": 7.433843123450276,
+            "p99": 7.494234778110117
+          }
+        },
+        {
+          "arrival_minute": 4,
+          "offered": 120,
+          "successes": 120,
+          "within_targets": 120,
+          "completion_seconds": {
+            "p50": 7.373631803500075,
+            "p95": 7.424256653449925,
+            "p99": 7.527272494260313
+          }
+        },
+        {
+          "arrival_minute": 5,
+          "offered": 120,
+          "successes": 119,
+          "within_targets": 117,
+          "completion_seconds": {
+            "p50": 7.395616461999907,
+            "p95": 7.47344354479983,
+            "p99": 7.891146186959765
+          }
+        }
+      ]
+    },
+    {
+      "label": "protected-cap16-rate4-300s",
+      "gateway_cap": 16,
+      "offered_rate": 4,
+      "started_at_utc": "2026-11-09T07:06:57.928353+00:00",
+      "arrival_seconds": 300,
+      "wall_seconds_including_drain": 303.75402148600006,
+      "offered": 1200,
+      "successes": 624,
+      "statuses": {
+        "429": 576,
+        "200": 624
+      },
+      "within_targets": 622,
+      "fraction_of_offered_within_targets": 0.5183333333333333,
+      "fraction_of_successes_within_targets": 0.9967948717948718,
+      "goodput_per_full_run_second": 2.04770951494602,
+      "successful_output_tokens_per_second": 262.94960510895254,
+      "completion_tokens": 79872,
+      "schedule_to_first_content_seconds": {
+        "p50": 0.2440673059998062,
+        "p95": 0.3116432581498884,
+        "p99": 0.45783438692014433
+      },
+      "schedule_to_completion_seconds": {
+        "p50": 6.489073040000221,
+        "p95": 7.577052854749991,
+        "p99": 7.745083921499931
+      },
+      "dispatch_lag_seconds": {
+        "p50": 0.0003227920001336315,
+        "p95": 0.0003829918502333385,
+        "p99": 0.0004832532102773256
+      },
+      "max_dispatch_lag_seconds": 0.002338817000236304,
+      "observed_dispatch_rate_in_window": 4.0,
+      "minutes": [
+        {
+          "arrival_minute": 1,
+          "offered": 240,
+          "successes": 128,
+          "within_targets": 128,
+          "completion_seconds": {
+            "p50": 6.482156784499921,
+            "p95": 7.554588550700213,
+            "p99": 7.614495613510339
+          }
+        },
+        {
+          "arrival_minute": 2,
+          "offered": 240,
+          "successes": 125,
+          "within_targets": 125,
+          "completion_seconds": {
+            "p50": 6.83349164900028,
+            "p95": 7.600571261599635,
+            "p99": 7.71246512787995
+          }
+        },
+        {
+          "arrival_minute": 3,
+          "offered": 240,
+          "successes": 118,
+          "within_targets": 116,
+          "completion_seconds": {
+            "p50": 6.4781097025002055,
+            "p95": 7.590115518499965,
+            "p99": 7.836495238970133
+          }
+        },
+        {
+          "arrival_minute": 4,
+          "offered": 240,
+          "successes": 125,
+          "within_targets": 125,
+          "completion_seconds": {
+            "p50": 6.330052143000103,
+            "p95": 7.532746931799647,
+            "p99": 7.596590605320307
+          }
+        },
+        {
+          "arrival_minute": 5,
+          "offered": 240,
+          "successes": 128,
+          "within_targets": 128,
+          "completion_seconds": {
+            "p50": 6.335498490999953,
+            "p95": 7.562632280750108,
+            "p99": 7.60669773215006
+          }
+        }
+      ]
+    }
+  ],
+  "matched_overload_comparison": {
+    "completion_p95_reduction_fraction": 0.3649296742890648,
+    "goodput_ratio_protected_over_reference": 3.601299328792445
+  }
+}

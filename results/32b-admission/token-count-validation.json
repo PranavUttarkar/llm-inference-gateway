@@ -1,0 +1,14 @@
+{
+  "completion_token_difference_vs_decoded_text": {
+    "0": 2023
+  },
+  "prompt_token_distribution": {
+    "506": 259,
+    "508": 253,
+    "507": 257,
+    "512": 506,
+    "511": 245,
+    "513": 503
+  },
+  "tokenizer_revision": "eddc13f573fd3648cc8a4741fdf1b70e8d6fc5c1"
+}

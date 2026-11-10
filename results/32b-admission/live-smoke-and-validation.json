@@ -1,0 +1,38 @@
+{
+  "oversized_body": {
+    "status": 413,
+    "body": "{\"error\": \"invalid or oversized request body\"}"
+  },
+  "empty_messages": {
+    "status": 400,
+    "body": "{\"error\": \"expected JSON with nonempty messages array\"}"
+  },
+  "nonstream_recovery": {
+    "status": 200,
+    "body": {
+      "id": "cmpl-ec39002e-dc0c-11f1-a176-6fa1006aa7a3",
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "Hello!",
+            "tool_calls": null,
+            "role": "assistant",
+            "function_call": null
+          },
+          "logprobs": null
+        }
+      ],
+      "created": 1794208348,
+      "model": "qwen",
+      "system_fingerprint": null,
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 3,
+        "prompt_tokens": 35,
+        "total_tokens": 38
+      }
+    }
+  }
+}

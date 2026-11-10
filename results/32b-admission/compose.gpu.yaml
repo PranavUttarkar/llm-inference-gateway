@@ -1,0 +1,43 @@
+services:
+  backend:
+    image: nvcr.io/nvidia/tritonserver:25.08-vllm-python-py3@sha256:782b60ab5c9ec57f045bfb1df91831a98cc0d094314fadaf8cf80e53581f79da
+    gpus: all
+    shm_size: 2gb
+    environment:
+      TP_SIZE: ${TP_SIZE:-1}
+      MODEL_ID: ${MODEL_ID:-Qwen/Qwen2.5-1.5B-Instruct}
+      MODEL_REVISION: ${MODEL_REVISION:-989aa7980e4cf806f80c7fef2b1adb7bc71aa306}
+    volumes:
+      - ./deploy/start_backend.py:/app/start_backend.py:ro
+      - model-cache:/root/.cache/huggingface
+    command: ["python3", "/app/start_backend.py"]
+  gateway:
+    build: .
+    command: python -m gateway.server
+    environment:
+      HOST: 0.0.0.0
+      UPSTREAM_URL: http://backend:9000
+      MAX_ACTIVE: ${MAX_ACTIVE:-32}
+      UPSTREAM_TIMEOUT_SECONDS: 120
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - backend
+  prometheus:
+    image: prom/prometheus:v3.5.0@sha256:63805ebb8d2b3920190daf1cb14a60871b16fd38bed42b857a3182bc621f4996
+    volumes:
+      - ./monitoring/prometheus.gpu.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "127.0.0.1:9090:9090"
+    depends_on:
+      - gateway
+  grafana:
+    image: grafana/grafana:12.1.0@sha256:6ac590e7cabc2fbe8d7b8fc1ce9c9f0582177b334e0df9c927ebd9670469440f
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ./monitoring/grafana:/etc/grafana/provisioning:ro
+    depends_on:
+      - prometheus
+volumes:
+  model-cache:

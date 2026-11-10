@@ -1,0 +1,4 @@
+services:
+  backend:
+    environment:
+      MAX_NUM_SEQS: ${MAX_NUM_SEQS:?set MAX_NUM_SEQS}

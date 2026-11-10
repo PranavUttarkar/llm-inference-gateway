@@ -1,0 +1,810 @@
+backend-1  | 
+backend-1  | =============================
+backend-1  | == Triton Inference Server ==
+backend-1  | =============================
+backend-1  | 
+backend-1  | NVIDIA Release 25.08 (build 202022708)
+backend-1  | Triton Server Version 2.60.0
+backend-1  | 
+backend-1  | Copyright (c) 2018-2025, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+backend-1  | 
+backend-1  | Various files include modifications (c) NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
+backend-1  | 
+backend-1  | GOVERNING TERMS: The software and materials are governed by the NVIDIA Software License Agreement
+backend-1  | (found at https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-software-license-agreement/)
+backend-1  | and the Product-Specific Terms for NVIDIA AI Products
+backend-1  | (found at https://www.nvidia.com/en-us/agreements/enterprise-software/product-specific-terms-for-ai-products/).
+backend-1  | 
+backend-1  | Fetching 14 files:   0%|          | 0/14 [00:00<?, ?it/s]Fetching 14 files: 100%|██████████| 14/14 [00:00<00:00, 157006.03it/s]
+backend-1  | I1109 05:06:42.240871 1 pinned_memory_manager.cc:277] "Pinned memory pool is created at '0x7ddd22000000' with size 268435456"
+backend-1  | I1109 05:06:42.240930 1 cuda_memory_manager.cc:107] "CUDA memory pool is created on device 0 with size 67108864"
+backend-1  | I1109 05:06:42.240936 1 cuda_memory_manager.cc:107] "CUDA memory pool is created on device 1 with size 67108864"
+backend-1  | W1109 05:06:42.349426 1 server.cc:256] "failed to enable peer access for some device pairs"
+backend-1  | I1109 05:06:42.350654 1 model_lifecycle.cc:473] "loading: qwen:1"
+backend-1  | INFO 11-09 05:06:46 [__init__.py:244] Automatically detected platform cuda.
+backend-1  | I1109 05:06:52.421287 1 python_be.cc:2289] "TRITONBACKEND_ModelInstanceInitialize: qwen_0_0 (MODEL device 0)"
+backend-1  | INFO 11-09 05:06:56 [__init__.py:244] Automatically detected platform cuda.
+backend-1  | INFO 11-09 05:07:06 [config.py:841] This model supports multiple tasks: {'classify', 'generate', 'reward', 'embed'}. Defaulting to 'generate'.
+backend-1  | INFO 11-09 05:07:06 [config.py:1472] Using max model len 2048
+backend-1  | INFO 11-09 05:07:06 [arg_utils.py:1746] Engine in background thread is experimental on VLLM_USE_V1=1. Falling back to V0 Engine.
+backend-1  | INFO 11-09 05:07:06 [api_server.py:268] Started engine process with PID 330
+backend-1  | INFO 11-09 05:07:10 [__init__.py:244] Automatically detected platform cuda.
+backend-1  | INFO 11-09 05:07:12 [llm_engine.py:230] Initializing a V0 LLM engine (v0.9.2+4ef1e343.nv25.08.post1) with config: model='/root/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28', speculative_config=None, tokenizer='/root/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=2048, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=2, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/root/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=None, chunked_prefill_enabled=False, use_async_output_proc=True, pooler_config=None, compilation_config={"level":0,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":[],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":256,"local_cache_dir":null}, use_cached_outputs=True, 
+backend-1  | WARNING 11-09 05:07:13 [multiproc_worker_utils.py:307] Reducing Torch parallelism from 34 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:13 [multiproc_worker_utils.py:226] Worker ready; awaiting tasks
+backend-1  | INFO 11-09 05:07:13 [cuda.py:363] Using Flash Attention backend.
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:13 [cuda.py:363] Using Flash Attention backend.
+backend-1  | [W1109 05:07:14.379485430 ProcessGroupNCCL.cpp:990] Warning: TORCH_NCCL_AVOID_RECORD_STREAMS is the default now, this environment variable is thus deprecated. (function operator())
+backend-1  | [W1109 05:07:14.388207830 ProcessGroupNCCL.cpp:990] Warning: TORCH_NCCL_AVOID_RECORD_STREAMS is the default now, this environment variable is thus deprecated. (function operator())
+backend-1  | [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+backend-1  | [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+backend-1  | [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+backend-1  | [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+backend-1  | INFO 11-09 05:07:14 [__init__.py:1152] Found nccl from library libnccl.so.2
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:14 [__init__.py:1152] Found nccl from library libnccl.so.2
+backend-1  | INFO 11-09 05:07:14 [pynccl.py:70] vLLM is using nccl==2.27.7
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:14 [pynccl.py:70] vLLM is using nccl==2.27.7
+backend-1  | INFO 11-09 05:07:14 [custom_all_reduce_utils.py:208] generating GPU P2P access cache in /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+backend-1  | INFO 11-09 05:07:24 [custom_all_reduce_utils.py:246] reading GPU P2P access cache from /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:24 [custom_all_reduce_utils.py:246] reading GPU P2P access cache from /root/.cache/vllm/gpu_p2p_access_cache_for_0,1.json
+backend-1  | WARNING 11-09 05:07:24 [custom_all_reduce.py:147] Custom allreduce is disabled because your platform lacks GPU P2P capability or P2P test failed. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m WARNING 11-09 05:07:24 [custom_all_reduce.py:147] Custom allreduce is disabled because your platform lacks GPU P2P capability or P2P test failed. To silence this warning, specify disable_custom_all_reduce=True explicitly.
+backend-1  | INFO 11-09 05:07:24 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1], buffer_handle=(1, 4194304, 6, 'psm_55603f80'), local_subscribe_addr='ipc:///tmp/7ea35ad5-c2eb-4f38-bf55-ee203a81d3e1', remote_subscribe_addr=None, remote_addr_ipv6=False)
+backend-1  | [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+backend-1  | [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+backend-1  | [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+backend-1  | [Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+backend-1  | [Gloo] Rank 1 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+backend-1  | [Gloo] Rank 0 is connected to 1 peer ranks. Expected number of connected peer ranks is : 1
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:24 [parallel_state.py:1076] rank 1 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+backend-1  | INFO 11-09 05:07:24 [parallel_state.py:1076] rank 0 in world size 2 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+backend-1  | INFO 11-09 05:07:24 [model_runner.py:1171] Starting to load model /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28...
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:24 [model_runner.py:1171] Starting to load model /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-7B-Instruct/snapshots/a09a35458c702b33eeacc393d103063234e8bc28...
+backend-1  | Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+backend-1  | Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:01,  1.81it/s]
+backend-1  | Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.58it/s]
+backend-1  | Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:01<00:00,  1.51it/s]
+backend-1  | Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.55it/s]
+backend-1  | Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:02<00:00,  1.56it/s]
+backend-1  | 
+backend-1  | INFO 11-09 05:07:27 [default_loader.py:272] Loading weights took 2.62 seconds
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:27 [default_loader.py:272] Loading weights took 2.54 seconds
+backend-1  | INFO 11-09 05:07:27 [model_runner.py:1203] Model loading took 7.1217 GiB and 2.764129 seconds
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:27 [model_runner.py:1203] Model loading took 7.1217 GiB and 2.686721 seconds
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:30 [worker.py:294] Memory profiling takes 3.02 seconds
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:30 [worker.py:294] the current vLLM instance can use total_gpu_memory (23.52GiB) x gpu_memory_utilization (0.80) = 18.81GiB
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:30 [worker.py:294] model weights take 7.12GiB; non_torch_memory takes 0.24GiB; PyTorch activation peak memory takes 0.19GiB; the rest of the memory reserved for KV Cache is 11.27GiB.
+backend-1  | INFO 11-09 05:07:30 [worker.py:294] Memory profiling takes 3.10 seconds
+backend-1  | INFO 11-09 05:07:30 [worker.py:294] the current vLLM instance can use total_gpu_memory (23.52GiB) x gpu_memory_utilization (0.80) = 18.81GiB
+backend-1  | INFO 11-09 05:07:30 [worker.py:294] model weights take 7.12GiB; non_torch_memory takes 0.24GiB; PyTorch activation peak memory takes 1.40GiB; the rest of the memory reserved for KV Cache is 10.05GiB.
+backend-1  | INFO 11-09 05:07:30 [executor_base.py:113] # cuda blocks: 23521, # CPU blocks: 9362
+backend-1  | INFO 11-09 05:07:30 [executor_base.py:118] Maximum concurrency for 2048 tokens per request: 183.76x
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:34 [model_runner.py:1513] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+backend-1  | INFO 11-09 05:07:34 [model_runner.py:1513] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+backend-1  | [1;36m(VllmWorkerProcess pid=392)[0;0m INFO 11-09 05:07:51 [model_runner.py:1671] Graph capturing finished in 16 secs, took 0.39 GiB
+backend-1  | Capturing CUDA graph shapes:   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 1/35 [00:00<00:16,  2.05it/s]Capturing CUDA graph shapes:   6%|▌         | 2/35 [00:00<00:15,  2.08it/s]Capturing CUDA graph shapes:   9%|▊         | 3/35 [00:01<00:15,  2.09it/s]Capturing CUDA graph shapes:  11%|█▏        | 4/35 [00:01<00:14,  2.09it/s]Capturing CUDA graph shapes:  14%|█▍        | 5/35 [00:02<00:14,  2.10it/s]Capturing CUDA graph shapes:  17%|█▋        | 6/35 [00:02<00:13,  2.11it/s]Capturing CUDA graph shapes:  20%|██        | 7/35 [00:03<00:13,  2.12it/s]Capturing CUDA graph shapes:  23%|██▎       | 8/35 [00:03<00:12,  2.13it/s]Capturing CUDA graph shapes:  26%|██▌       | 9/35 [00:04<00:12,  2.13it/s]Capturing CUDA graph shapes:  29%|██▊       | 10/35 [00:04<00:11,  2.14it/s]Capturing CUDA graph shapes:  31%|███▏      | 11/35 [00:05<00:11,  2.15it/s]Capturing CUDA graph shapes:  34%|███▍      | 12/35 [00:05<00:10,  2.16it/s]Capturing CUDA graph shapes:  37%|███▋      | 13/35 [00:06<00:10,  2.15it/s]Capturing CUDA graph shapes:  40%|████      | 14/35 [00:06<00:09,  2.16it/s]Capturing CUDA graph shapes:  43%|████▎     | 15/35 [00:07<00:09,  2.16it/s]Capturing CUDA graph shapes:  46%|████▌     | 16/35 [00:07<00:08,  2.17it/s]Capturing CUDA graph shapes:  49%|████▊     | 17/35 [00:07<00:08,  2.18it/s]Capturing CUDA graph shapes:  51%|█████▏    | 18/35 [00:08<00:07,  2.19it/s]Capturing CUDA graph shapes:  54%|█████▍    | 19/35 [00:08<00:07,  2.20it/s]Capturing CUDA graph shapes:  57%|█████▋    | 20/35 [00:09<00:06,  2.20it/s]Capturing CUDA graph shapes:  60%|██████    | 21/35 [00:09<00:06,  2.20it/s]Capturing CUDA graph shapes:  63%|██████▎   | 22/35 [00:10<00:05,  2.20it/s]Capturing CUDA graph shapes:  66%|██████▌   | 23/35 [00:10<00:05,  2.19it/s]Capturing CUDA graph shapes:  69%|██████▊   | 24/35 [00:11<00:05,  2.19it/s]Capturing CUDA graph shapes:  71%|███████▏  | 25/35 [00:11<00:04,  2.20it/s]Capturing CUDA graph shapes:  74%|███████▍  | 26/35 [00:12<00:04,  2.20it/s]Capturing CUDA graph shapes:  77%|███████▋  | 27/35 [00:12<00:03,  2.20it/s]Capturing CUDA graph shapes:  80%|████████  | 28/35 [00:12<00:03,  2.20it/s]Capturing CUDA graph shapes:  83%|████████▎ | 29/35 [00:13<00:02,  2.20it/s]Capturing CUDA graph shapes:  86%|████████▌ | 30/35 [00:13<00:02,  2.20it/s]Capturing CUDA graph shapes:  89%|████████▊ | 31/35 [00:14<00:01,  2.21it/s]Capturing CUDA graph shapes:  91%|█████████▏| 32/35 [00:14<00:01,  2.20it/s]Capturing CUDA graph shapes:  94%|█████████▍| 33/35 [00:15<00:00,  2.21it/s]Capturing CUDA graph shapes:  97%|█████████▋| 34/35 [00:15<00:00,  2.21it/s]Capturing CUDA graph shapes: 100%|██████████| 35/35 [00:16<00:00,  1.76it/s]Capturing CUDA graph shapes: 100%|██████████| 35/35 [00:16<00:00,  2.12it/s]
+backend-1  | INFO 11-09 05:07:51 [model_runner.py:1671] Graph capturing finished in 16 secs, took 0.39 GiB
+backend-1  | INFO 11-09 05:07:51 [llm_engine.py:428] init engine (profile, create kv cache, warmup model) took 23.60 seconds
+backend-1  | I1109 05:07:51.625307 1 model_lifecycle.cc:849] "successfully loaded 'qwen'"
+backend-1  | I1109 05:07:51.625406 1 server.cc:611] 
+backend-1  | +------------------+------+
+backend-1  | | Repository Agent | Path |
+backend-1  | +------------------+------+
+backend-1  | +------------------+------+
+backend-1  | 
+backend-1  | I1109 05:07:51.625465 1 server.cc:638] 
+backend-1  | +---------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+backend-1  | | Backend | Path                                                  | Config                                                                                                                                                        |
+backend-1  | +---------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+backend-1  | | python  | /opt/tritonserver/backends/python/libtriton_python.so | {"cmdline":{"auto-complete-config":"true","backend-directory":"/opt/tritonserver/backends","min-compute-capability":"6.000000","default-max-batch-size":"4"}} |
+backend-1  | | vllm    | /opt/tritonserver/backends/vllm/model.py              | {"cmdline":{"auto-complete-config":"true","backend-directory":"/opt/tritonserver/backends","min-compute-capability":"6.000000","default-max-batch-size":"4"}} |
+backend-1  | +---------+-------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+backend-1  | 
+backend-1  | I1109 05:07:51.625511 1 server.cc:681] 
+backend-1  | +-------+---------+--------+
+backend-1  | | Model | Version | Status |
+backend-1  | +-------+---------+--------+
+backend-1  | | qwen  | 1       | READY  |
+backend-1  | +-------+---------+--------+
+backend-1  | 
+backend-1  | I1109 05:07:51.672112 1 metrics.cc:889] "Collecting metrics for GPU 0: NVIDIA GeForce RTX 4090"
+backend-1  | I1109 05:07:51.672142 1 metrics.cc:889] "Collecting metrics for GPU 1: NVIDIA GeForce RTX 4090"
+backend-1  | I1109 05:07:51.675224 1 metrics.cc:782] "Collecting CPU metrics"
+backend-1  | I1109 05:07:51.675364 1 tritonserver.cc:2598] 
+backend-1  | +----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+backend-1  | | Option                           | Value                                                                                                                                                                                                           |
+backend-1  | +----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+backend-1  | | server_id                        | triton                                                                                                                                                                                                          |
+backend-1  | | server_version                   | 2.60.0                                                                                                                                                                                                          |
+backend-1  | | server_extensions                | classification sequence model_repository model_repository(unload_dependents) schedule_policy model_configuration system_shared_memory cuda_shared_memory binary_tensor_data parameters statistics trace logging |
+backend-1  | | model_repository_path[0]         | /tmp/gateway-models                                                                                                                                                                                             |
+backend-1  | | model_control_mode               | MODE_NONE                                                                                                                                                                                                       |
+backend-1  | | strict_model_config              | 0                                                                                                                                                                                                               |
+backend-1  | | model_config_name                |                                                                                                                                                                                                                 |
+backend-1  | | rate_limit                       | OFF                                                                                                                                                                                                             |
+backend-1  | | pinned_memory_pool_byte_size     | 268435456                                                                                                                                                                                                       |
+backend-1  | | cuda_memory_pool_byte_size{0}    | 67108864                                                                                                                                                                                                        |
+backend-1  | | cuda_memory_pool_byte_size{1}    | 67108864                                                                                                                                                                                                        |
+backend-1  | | min_supported_compute_capability | 6.0                                                                                                                                                                                                             |
+backend-1  | | strict_readiness                 | 1                                                                                                                                                                                                               |
+backend-1  | | exit_timeout                     | 30                                                                                                                                                                                                              |
+backend-1  | | cache_enabled                    | 0                                                                                                                                                                                                               |
+backend-1  | +----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+backend-1  | 
+backend-1  | INFO:     Started server process [1]
+backend-1  | INFO:     Waiting for application startup.
+backend-1  | INFO:     Application startup complete.
+backend-1  | INFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)
+backend-1  | Found model: name='qwen', backend='vllm'
+backend-1  | [WARNING] Adding CORS for the following origins: ['http://localhost']
+backend-1  | INFO:     127.0.0.1:47392 - "GET /health/ready HTTP/1.1" 200 OK
+backend-1  | INFO:     127.0.0.1:47406 - "GET /health/ready HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:38250 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:38266 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:07:56 [metrics.py:417] Avg prompt throughput: 203.7 tokens/s, Avg generation throughput: 50.0 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:34586 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:06 [metrics.py:417] Avg prompt throughput: 52.1 tokens/s, Avg generation throughput: 0.7 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:34600 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:34610 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:34626 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:11 [metrics.py:417] Avg prompt throughput: 307.2 tokens/s, Avg generation throughput: 89.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:59614 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59626 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:16 [metrics.py:417] Avg prompt throughput: 303.8 tokens/s, Avg generation throughput: 89.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:59634 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59646 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59662 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:52018 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:21 [metrics.py:417] Avg prompt throughput: 409.0 tokens/s, Avg generation throughput: 88.3 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:52028 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:52032 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:52040 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:26 [metrics.py:417] Avg prompt throughput: 305.2 tokens/s, Avg generation throughput: 89.3 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:52046 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:52056 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:52062 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33566 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:31 [metrics.py:417] Avg prompt throughput: 408.2 tokens/s, Avg generation throughput: 88.4 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:33580 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33584 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33594 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:36 [metrics.py:417] Avg prompt throughput: 305.8 tokens/s, Avg generation throughput: 89.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:33608 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33632 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:32874 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:41 [metrics.py:417] Avg prompt throughput: 407.2 tokens/s, Avg generation throughput: 88.3 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:32886 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:32894 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:32906 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:46 [metrics.py:417] Avg prompt throughput: 307.4 tokens/s, Avg generation throughput: 89.3 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:32920 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:32924 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:32938 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:44924 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:51 [metrics.py:417] Avg prompt throughput: 406.1 tokens/s, Avg generation throughput: 88.3 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:44932 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:44934 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:44534 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:44946 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:08:56 [metrics.py:417] Avg prompt throughput: 306.6 tokens/s, Avg generation throughput: 89.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:44956 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:44968 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:60344 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:44978 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47828 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:01 [metrics.py:417] Avg prompt throughput: 406.2 tokens/s, Avg generation throughput: 88.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:47836 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47838 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:60344 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47846 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:06 [metrics.py:417] Avg prompt throughput: 307.0 tokens/s, Avg generation throughput: 89.0 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:47854 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:60344 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47870 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59142 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:11 [metrics.py:417] Avg prompt throughput: 407.7 tokens/s, Avg generation throughput: 87.7 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:59152 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59162 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:60344 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59168 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:16 [metrics.py:417] Avg prompt throughput: 305.6 tokens/s, Avg generation throughput: 88.9 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:59180 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59186 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59196 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:55350 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:21 [metrics.py:417] Avg prompt throughput: 408.8 tokens/s, Avg generation throughput: 87.8 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:55366 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:55382 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:55390 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:26 [metrics.py:417] Avg prompt throughput: 306.5 tokens/s, Avg generation throughput: 87.7 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:55400 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:55410 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:55418 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:31 [metrics.py:417] Avg prompt throughput: 305.4 tokens/s, Avg generation throughput: 89.3 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:54178 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54182 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54194 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54204 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:36 [metrics.py:417] Avg prompt throughput: 407.0 tokens/s, Avg generation throughput: 88.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:54206 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54222 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54234 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:41 [metrics.py:417] Avg prompt throughput: 307.0 tokens/s, Avg generation throughput: 89.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:60128 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60142 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60156 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60166 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:46 [metrics.py:417] Avg prompt throughput: 406.3 tokens/s, Avg generation throughput: 88.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:60168 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60178 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60194 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:51 [metrics.py:417] Avg prompt throughput: 306.8 tokens/s, Avg generation throughput: 89.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:33618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33626 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33640 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33644 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:09:56 [metrics.py:417] Avg prompt throughput: 406.6 tokens/s, Avg generation throughput: 88.0 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:33652 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33662 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:33674 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:01 [metrics.py:417] Avg prompt throughput: 306.7 tokens/s, Avg generation throughput: 89.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:54482 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54488 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54498 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54506 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:06 [metrics.py:417] Avg prompt throughput: 407.5 tokens/s, Avg generation throughput: 88.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:54522 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54530 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:38916 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54536 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:11 [metrics.py:417] Avg prompt throughput: 305.4 tokens/s, Avg generation throughput: 89.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:42602 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:42608 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:36174 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:42612 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:42620 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:16 [metrics.py:417] Avg prompt throughput: 408.4 tokens/s, Avg generation throughput: 88.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:42622 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:42630 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:36174 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:42638 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:21 [metrics.py:417] Avg prompt throughput: 305.0 tokens/s, Avg generation throughput: 89.3 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:43538 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:43540 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:43542 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:43550 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:26 [metrics.py:417] Avg prompt throughput: 409.3 tokens/s, Avg generation throughput: 88.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:43556 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:43560 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47340 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:31 [metrics.py:417] Avg prompt throughput: 303.6 tokens/s, Avg generation throughput: 89.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:47344 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47352 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47364 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47374 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:36 [metrics.py:417] Avg prompt throughput: 406.9 tokens/s, Avg generation throughput: 88.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:47388 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47390 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49392 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:41 [metrics.py:417] Avg prompt throughput: 304.8 tokens/s, Avg generation throughput: 89.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:49400 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49404 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49414 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:46 [metrics.py:417] Avg prompt throughput: 307.0 tokens/s, Avg generation throughput: 87.6 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:49420 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49446 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49430 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49456 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49458 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49460 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49472 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49484 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49494 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:51 [metrics.py:417] Avg prompt throughput: 918.5 tokens/s, Avg generation throughput: 232.2 tokens/s, Running: 0 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.0%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:56194 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56196 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56208 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56218 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56232 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56234 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56248 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56256 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56258 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56276 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56278 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:10:56 [metrics.py:417] Avg prompt throughput: 1221.6 tokens/s, Avg generation throughput: 296.4 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.7%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:56288 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56294 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56300 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56316 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56326 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56338 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56340 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56344 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56356 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56360 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56364 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:56378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:01 [metrics.py:417] Avg prompt throughput: 1225.7 tokens/s, Avg generation throughput: 297.5 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.7%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:60780 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60790 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60796 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60804 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60812 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60828 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60834 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60842 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60848 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60864 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60878 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:06 [metrics.py:417] Avg prompt throughput: 1223.0 tokens/s, Avg generation throughput: 297.6 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.6%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:60882 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60898 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60902 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60910 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60914 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60924 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:60932 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:11 [metrics.py:417] Avg prompt throughput: 714.7 tokens/s, Avg generation throughput: 204.5 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:37236 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37246 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:43734 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37258 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37268 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37272 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37280 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:16 [metrics.py:417] Avg prompt throughput: 713.2 tokens/s, Avg generation throughput: 97.7 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.6%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:37290 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37296 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37298 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37310 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37322 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37312 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37328 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:37340 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47608 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47622 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47624 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:21 [metrics.py:417] Avg prompt throughput: 1118.1 tokens/s, Avg generation throughput: 289.6 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.6%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:47636 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47638 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47654 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47670 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47684 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47692 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47702 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47712 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47724 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47728 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47744 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47760 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:26 [metrics.py:417] Avg prompt throughput: 1277.7 tokens/s, Avg generation throughput: 296.3 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.5%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:47768 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47770 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47778 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47784 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47826 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47812 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47798 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:47830 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48612 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48634 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48636 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:31 [metrics.py:417] Avg prompt throughput: 1088.0 tokens/s, Avg generation throughput: 297.3 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.6%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:48642 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48654 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48664 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48666 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48672 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48678 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48690 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48700 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:36 [metrics.py:417] Avg prompt throughput: 917.8 tokens/s, Avg generation throughput: 300.6 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.7%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:48708 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48722 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:48730 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59626 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:41 [metrics.py:417] Avg prompt throughput: 509.4 tokens/s, Avg generation throughput: 113.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:59640 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59652 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59664 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59674 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59688 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59690 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59698 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59700 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59704 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59714 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59726 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59728 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59736 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59752 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59758 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59764 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:47 [metrics.py:417] Avg prompt throughput: 1723.6 tokens/s, Avg generation throughput: 250.5 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:59776 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59788 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59804 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59808 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59820 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59824 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59826 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59840 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59266 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59260 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59272 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59284 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59286 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59294 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59302 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59308 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:52 [metrics.py:417] Avg prompt throughput: 1631.6 tokens/s, Avg generation throughput: 508.4 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:59320 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59328 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59330 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59360 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59348 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59346 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59366 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59370 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59382 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59394 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59408 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59420 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59422 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59438 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59452 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59456 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59466 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59470 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:11:57 [metrics.py:417] Avg prompt throughput: 1829.1 tokens/s, Avg generation throughput: 512.2 tokens/s, Running: 2 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.3%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:59474 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:59484 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40748 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:02 [metrics.py:417] Avg prompt throughput: 307.1 tokens/s, Avg generation throughput: 111.6 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:40764 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40772 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40788 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40802 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40816 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40828 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40842 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40852 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40864 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40872 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40866 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40886 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40888 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40890 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40894 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40904 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40908 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:07 [metrics.py:417] Avg prompt throughput: 1732.3 tokens/s, Avg generation throughput: 271.4 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:40924 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40940 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40954 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40936 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40958 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40962 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40978 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:40986 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:41000 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:41014 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:41016 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:41028 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:41030 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:41044 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:41054 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:12 [metrics.py:417] Avg prompt throughput: 1630.1 tokens/s, Avg generation throughput: 527.1 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.3%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:49116 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49132 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49174 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49164 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49152 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49138 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49188 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49200 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49202 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49222 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49210 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49236 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49238 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49242 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49248 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49264 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49276 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49278 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:17 [metrics.py:417] Avg prompt throughput: 1833.3 tokens/s, Avg generation throughput: 479.4 tokens/s, Running: 2 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.3%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:49284 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:49288 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50432 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:22 [metrics.py:417] Avg prompt throughput: 307.1 tokens/s, Avg generation throughput: 105.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:50446 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50452 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50466 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50480 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50482 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50484 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50494 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50500 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50506 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50520 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50524 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50532 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50548 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50560 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50566 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50576 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50590 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50596 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50608 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50618 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50626 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50628 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50642 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50654 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50662 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50672 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50680 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50686 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50694 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50704 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50712 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50718 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50732 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:27 [metrics.py:417] Avg prompt throughput: 2111.1 tokens/s, Avg generation throughput: 442.6 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 9 reqs, GPU KV cache usage: 1.0%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50734 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50746 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50760 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50768 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50774 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50788 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50804 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50812 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50816 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50826 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50834 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50850 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50856 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50858 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50868 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50878 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:32 [metrics.py:417] Avg prompt throughput: 2853.9 tokens/s, Avg generation throughput: 807.4 tokens/s, Running: 16 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.7%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:36632 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36640 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36644 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36658 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36672 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:37 [metrics.py:417] Avg prompt throughput: 509.4 tokens/s, Avg generation throughput: 118.8 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:36686 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36700 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36722 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36724 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36728 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36738 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36740 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36746 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36758 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36764 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36766 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36770 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36784 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36800 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36808 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:36810 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:42 [metrics.py:417] Avg prompt throughput: 1733.3 tokens/s, Avg generation throughput: 431.0 tokens/s, Running: 16 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.7%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:50996 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50998 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51004 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51016 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51032 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51034 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51040 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51050 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51066 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51078 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51094 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51098 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51108 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51112 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51124 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51132 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51138 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51142 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51144 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51154 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51164 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51180 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51182 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51188 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51200 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51208 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51212 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51228 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51236 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51252 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51258 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51260 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:47 [metrics.py:417] Avg prompt throughput: 3263.0 tokens/s, Avg generation throughput: 741.8 tokens/s, Running: 16 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.6%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:51268 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51282 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:51294 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53680 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53682 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:52 [metrics.py:417] Avg prompt throughput: 507.0 tokens/s, Avg generation throughput: 200.4 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:53696 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53718 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53706 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53722 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53726 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53736 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53748 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53754 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53762 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53764 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53778 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53782 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53790 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53802 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53818 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53822 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53834 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53844 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53854 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53864 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53868 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53870 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53886 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53892 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53904 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53912 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53926 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53930 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53942 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53958 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53974 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53986 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:53988 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:12:57 [metrics.py:417] Avg prompt throughput: 3360.3 tokens/s, Avg generation throughput: 242.5 tokens/s, Running: 32 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.6%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:54012 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54000 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54014 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54024 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54026 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54034 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54036 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54048 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54060 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54064 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54078 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54082 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54094 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54102 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54112 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54122 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54132 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:54134 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45404 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:13:02 [metrics.py:417] Avg prompt throughput: 1935.5 tokens/s, Avg generation throughput: 1088.1 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:45414 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45418 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45428 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:13:07 [metrics.py:417] Avg prompt throughput: 306.8 tokens/s, Avg generation throughput: 89.3 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.2%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.3:45442 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45448 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45456 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45472 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45474 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45488 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45492 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45494 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45504 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45518 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45524 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45528 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45538 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45548 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45564 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45578 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45590 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45602 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45616 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45632 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45646 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45656 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45658 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45668 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45680 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45684 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45694 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45710 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45724 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45738 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45750 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:45760 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50016 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50032 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50034 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50050 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50056 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50058 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50068 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50074 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50082 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50090 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50100 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50110 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50118 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50126 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50136 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50150 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO:     172.18.0.3:50154 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+backend-1  | INFO 11-09 05:13:12 [metrics.py:417] Avg prompt throughput: 3922.6 tokens/s, Avg generation throughput: 820.1 tokens/s, Running: 11 reqs, Swapped: 0 reqs, Pending: 6 reqs, GPU KV cache usage: 1.5%, CPU KV cache usage: 0.0%.
+backend-1  | INFO:     172.18.0.4:40208 - "GET /metrics HTTP/1.1" 200 OK

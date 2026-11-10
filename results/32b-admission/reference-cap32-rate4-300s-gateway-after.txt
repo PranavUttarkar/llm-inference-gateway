@@ -1,0 +1,4 @@
+gateway_active 0
+gateway_accepted_total 804
+gateway_rejected_total 400
+gateway_upstream_errors_total 0
