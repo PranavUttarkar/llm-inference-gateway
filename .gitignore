@@ -7,3 +7,25 @@ results.jsonl
 *.summary.json
 artifacts/
 docs/
+
+# Publish only the documentation and evidence selected for the project page.
+!docs/
+docs/*
+!docs/runbook.md
+!docs/lambda-rental.md
+!docs/results-template.md
+!docs/32b-experiment.md
+!docs/project-status.md
+!docs/images/
+!results/
+results/*
+!results/README.md
+!results/32b-admission/
+!results/7b-tensor-parallel/
+!results/7b-sequence-capacity/
+results/32b-admission/*
+!results/32b-admission/**
+results/7b-tensor-parallel/*
+!results/7b-tensor-parallel/**
+results/7b-sequence-capacity/*
+!results/7b-sequence-capacity/**
