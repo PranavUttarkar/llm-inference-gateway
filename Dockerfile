@@ -2,4 +2,7 @@ FROM python:3.13.9-slim@sha256:326df678c20c78d465db501563f3492d17c42a4afe33a1f2b
 WORKDIR /app
 COPY gateway ./gateway
 COPY tests ./tests
+COPY requirements-tokenizer.txt ./
+ARG ENABLE_CHAT_LIMITS=0
+RUN if [ "$ENABLE_CHAT_LIMITS" = "1" ]; then pip install --no-cache-dir -r requirements-tokenizer.txt; fi
 ENV PYTHONUNBUFFERED=1

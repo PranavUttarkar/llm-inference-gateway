@@ -10,6 +10,9 @@ services:
     environment:
       HOST: 0.0.0.0
       UPSTREAM_URL: http://mock:9000
+      MAX_CONNECTIONS: ${MAX_CONNECTIONS:-64}
+      CONNECTION_TIMEOUT_SECONDS: ${CONNECTION_TIMEOUT_SECONDS:-10}
+      REQUEST_DEADLINE_SECONDS: ${REQUEST_DEADLINE_SECONDS:-120}
     ports:
       - "127.0.0.1:8080:8080"
     depends_on:
