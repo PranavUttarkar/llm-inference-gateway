@@ -1,0 +1,13 @@
+# Overlay after the chosen serving configuration. Supply a matching local snapshot.
+services:
+  gateway:
+    build:
+      context: .
+      args:
+        ENABLE_CHAT_LIMITS: "1"
+    environment:
+      TOKENIZER_PATH: /tokenizer
+      MAX_INPUT_TOKENS: ${MAX_INPUT_TOKENS:-1792}
+      MAX_CONTEXT_TOKENS: 2048
+    volumes:
+      - ${TOKENIZER_PATH:?set TOKENIZER_PATH to the matching local tokenizer snapshot}:/tokenizer:ro

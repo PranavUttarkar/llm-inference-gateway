@@ -1,0 +1,49 @@
+# Standalone two-replica stack. Stop the TP stack first; both own the same GPUs.
+x-backend: &backend
+  image: nvcr.io/nvidia/tritonserver:25.08-vllm-python-py3@sha256:782b60ab5c9ec57f045bfb1df91831a98cc0d094314fadaf8cf80e53581f79da
+  shm_size: 2gb
+  environment:
+    TP_SIZE: 1
+    MODEL_ID: Qwen/Qwen2.5-7B-Instruct
+    MODEL_REVISION: a09a35458c702b33eeacc393d103063234e8bc28
+  volumes:
+    - ./deploy/start_backend.py:/app/start_backend.py:ro
+    - model-cache:/root/.cache/huggingface
+  command: ["python3", "/app/start_backend.py"]
+
+services:
+  backend0:
+    <<: *backend
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["0"]
+              capabilities: [gpu]
+  backend1:
+    <<: *backend
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["1"]
+              capabilities: [gpu]
+  gateway:
+    build: .
+    command: python -m gateway.server
+    environment:
+      HOST: 0.0.0.0
+      UPSTREAM_URLS: http://backend0:9000,http://backend1:9000
+      MAX_ACTIVE: ${MAX_ACTIVE:-32}
+      UPSTREAM_TIMEOUT_SECONDS: 120
+      REQUEST_DEADLINE_SECONDS: ${REQUEST_DEADLINE_SECONDS:-120}
+      MAX_CONNECTIONS: ${MAX_CONNECTIONS:-64}
+      CONNECTION_TIMEOUT_SECONDS: ${CONNECTION_TIMEOUT_SECONDS:-10}
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on: [backend0, backend1]
+
+volumes:
+  model-cache:

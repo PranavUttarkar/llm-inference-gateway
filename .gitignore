@@ -16,6 +16,7 @@ docs/*
 !docs/results-template.md
 !docs/32b-experiment.md
 !docs/project-status.md
+!docs/optional-extensions.md
 !docs/images/
 !results/
 results/*

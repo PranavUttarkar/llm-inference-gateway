@@ -1,3 +1,6 @@
 # Preserve captured evidence bytes across Windows and Linux checkouts.
 results/** -text
 docs/images/** -text
+
+# Preserve the generated workload bytes covered by its provenance hash.
+workloads/prompts-1536.json* -text
