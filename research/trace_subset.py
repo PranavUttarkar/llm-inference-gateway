@@ -79,7 +79,7 @@ def audit(rows):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--input', type=Path, help='JSONL using the schema in cache_repair/protocol.md')
+    parser.add_argument('--input', type=Path, help='JSONL using the schema in reports/batch-instability/report.md')
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     if args.output.exists():
