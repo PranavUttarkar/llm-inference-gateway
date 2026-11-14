@@ -1,0 +1,31 @@
+{
+  "mean_kl_by_arm": {
+    "keep": 0.02299453375783959,
+    "state_only_frozen_scales": 0.02341878856586684,
+    "scales_only_oracle_diagnostic": 0.024000458659467056,
+    "state_and_scales": 0.02094843213529396,
+    "uncompressed_full_prefill_geometry": 0.01550541078948653,
+    "uncompressed_repeat_control": 0.0,
+    "uncompressed_stream_rebuild_repeat": 0.0,
+    "uncompressed_prefill_rebuild_repeat": 0.01550541078948653,
+    "full_prefill_requant_fresh_scales": 0.03430600991217556,
+    "higher_precision_k8v8_stream_anchor": 0.0007183797309309152
+  },
+  "sd_primary_benefit_nats": 0.013393272256618908,
+  "logical_bytes_per_prefix_token": {
+    "keep": 13589.333333333334,
+    "repair": 13589.333333333334,
+    "k8v8_anchor": 19562.666666666668
+  },
+  "sum_case_wall_seconds": 742.7407438109996,
+  "sum_smoke_case_wall_seconds": 32.112198216000024,
+  "peak_allocated_bytes_max": 3876609536,
+  "peak_reserved_bytes_max": 4095737856,
+  "launch_utc": "2026-11-14T01:21:51Z",
+  "finish_utc": "2026-11-14T01:29:55Z",
+  "manifest_sha256": {
+    "gpu0": "b49a726476ea8b30bd9942e00f2723fddd0e8386b1407ff3e9b7068cd33184d3",
+    "gpu1": "89721edba5d90fe23f9c0b4b36550b4a49b3331b5e81a26a832ccca5322feaa1"
+  },
+  "raw_layer0_history_error_max": 0.0
+}

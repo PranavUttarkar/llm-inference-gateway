@@ -1,0 +1,60 @@
+{
+  "scope": "pretrained-model numerical emulation; reference-text cohort; not task accuracy or physical KV savings",
+  "robustness_and_secondary": {
+    "median_primary_benefit_nats": 0.0026217385077046936,
+    "primary_sign_counts": {
+      "improved": 4,
+      "unchanged": 0,
+      "worsened": 0
+    },
+    "mean_log_keep_over_frozen_kl": 0.37649086289068767,
+    "log_ratio_95_percentile_interval": [
+      0.20018656887616856,
+      0.5527951569052068
+    ],
+    "log_ratio_floor_nats": 1e-09,
+    "log_ratio_clipped_questions": 0,
+    "leave_one_out_primary_mean_range_nats": [
+      0.002089259158165048,
+      0.004660573230258028
+    ],
+    "largest_positive_question_share_of_total_benefit": 0.5823158031309397,
+    "secondary_fresh_minus_frozen_kl_nats": {
+      "mean": 4.051293173032325e-05,
+      "paired_95_percentile_interval": [
+        -0.0017250713115608348,
+        0.0014546484487882021
+      ],
+      "positive_favors": "frozen scales"
+    },
+    "inference_scope": "exploratory secondary/descriptive intervals; no multiplicity-adjusted discovery claim"
+  },
+  "questions": 4,
+  "spec_sha256": "c24d5ed3d556bb9887ed968e10df5b8bfeaf192e81cd5e82059d23f977361581",
+  "mean_kl_by_arm": {
+    "keep": 0.01124230938259973,
+    "state_only_frozen_scales": 0.00749080434513477,
+    "scales_only_oracle_diagnostic": 0.00950444602034123,
+    "state_and_scales": 0.007531317276865093,
+    "uncompressed_full_prefill_geometry": 0.0,
+    "full_prefill_requant_fresh_scales": 0.007531317276865093
+  },
+  "mean_paired_primary_delta": -0.00375150503746496,
+  "sd_paired_primary_delta": 0.00340958347629935,
+  "individual_primary_deltas": [
+    -0.002716175101378008,
+    -0.001024300459085756,
+    -0.0025273019140313793,
+    -0.008738242675364697
+  ],
+  "fractional_mean_kl_reduction": 0.33369523198421736,
+  "fresh_scale_rebuild_worse_than_keep_questions": 1,
+  "normal_approximation_planning_N_two_sided_05_power_80": {
+    "0.0005": 365,
+    "0.001": 92,
+    "0.002": 23
+  },
+  "planning_warning": "Four-case SD is highly uncertain. These N values are sensitivity calculations, not validated power, confirmation, or evidence of accuracy gain.",
+  "measured_case_seconds": 634.9743509999244,
+  "logical_effective_bytes_per_token": 13589.333333333334
+}

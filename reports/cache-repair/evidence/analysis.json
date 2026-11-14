@@ -1,0 +1,464 @@
+{
+  "decision": "no_material_numerical_target_stop",
+  "source_questions": 96,
+  "rule": {
+    "minimum_benefit_nats_per_token": 0.001,
+    "noise_multiplier": 5,
+    "repeat_tolerance_nats": 1e-06,
+    "bootstrap_draws": 20000,
+    "bootstrap_seed": 20261113,
+    "confidence": 0.95,
+    "unit": "source_question",
+    "scope": "numerical mechanism only; no accuracy/deployment inference"
+  },
+  "mean_benefit_nats": -0.0004242548080272491,
+  "paired_percentile_bootstrap_95_interval": [
+    -0.0031907683571605156,
+    0.0021675424594040974
+  ],
+  "mean_keep_kl_nats": 0.02299453375783959,
+  "mean_noise_floor_nats": 0.015505410789486529,
+  "max_independent_or_probe_repeat_kl_abs": 0.0,
+  "operational_continue_threshold_nats": 0.07752705394743264,
+  "warning": "Floor is an operational safeguard, not an additive KL error bound; interval is exploratory and does not establish task accuracy or absence of all effects.",
+  "robustness_and_secondary": {
+    "median_primary_benefit_nats": 0.001181665439197087,
+    "primary_sign_counts": {
+      "improved": 60,
+      "unchanged": 0,
+      "worsened": 36
+    },
+    "mean_log_keep_over_frozen_kl": 0.14472081536236783,
+    "log_ratio_95_percentile_interval": [
+      0.028112996795288975,
+      0.26337452140116274
+    ],
+    "log_ratio_floor_nats": 1e-09,
+    "log_ratio_clipped_questions": 0,
+    "leave_one_out_primary_mean_range_nats": [
+      -0.0007569217372331966,
+      0.00016838462836409263
+    ],
+    "largest_positive_question_share_of_total_benefit": null,
+    "secondary_fresh_minus_frozen_kl_nats": {
+      "mean": -0.0024703564305728785,
+      "paired_95_percentile_interval": [
+        -0.005394597064353326,
+        0.00012646526774022247
+      ],
+      "positive_favors": "frozen scales"
+    },
+    "inference_scope": "exploratory secondary/descriptive intervals; no multiplicity-adjusted discovery claim",
+    "numerical_k8v8_anchor": {
+      "mean_kl_nats": 0.0007183797309309152,
+      "frozen_minus_anchor_mean_kl_nats": 0.02270040883493592,
+      "frozen_minus_anchor_95_interval": [
+        0.016809522259844233,
+        0.02925589594591269
+      ],
+      "frozen_at_or_below_anchor_questions": 0,
+      "warning": "Numerical reference only; negligible accuracy cost has NOT been measured in this configuration."
+    }
+  },
+  "global_spec_sha256": "e5df7557b6783acb7f23334ef1f75e2f58b73cee3cba1dc624540a1706d9d3fe",
+  "device_strata": [
+    {
+      "directory": "artifacts\\cache-repair\\gpu-run-v3\\gpu0",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "n": 48,
+      "mean_benefit_nats": -0.0007690325703883738
+    },
+    {
+      "directory": "artifacts\\cache-repair\\gpu-run-v3\\gpu1",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "n": 48,
+      "mean_benefit_nats": -7.94770456661243e-05
+    }
+  ],
+  "individual_effects": [
+    {
+      "id": "test/algebra/1553.json",
+      "benefit_nats": 0.0012210944065146057
+    },
+    {
+      "id": "test/prealgebra/1044.json",
+      "benefit_nats": 0.00564330909661135
+    },
+    {
+      "id": "test/geometry/627.json",
+      "benefit_nats": -0.01171790728484394
+    },
+    {
+      "id": "test/intermediate_algebra/607.json",
+      "benefit_nats": -0.0068419757989848645
+    },
+    {
+      "id": "test/intermediate_algebra/894.json",
+      "benefit_nats": 0.0014154689741993562
+    },
+    {
+      "id": "test/precalculus/263.json",
+      "benefit_nats": -0.0002270900808300228
+    },
+    {
+      "id": "test/prealgebra/1558.json",
+      "benefit_nats": 0.009109086814655571
+    },
+    {
+      "id": "test/precalculus/323.json",
+      "benefit_nats": 0.010372843528155633
+    },
+    {
+      "id": "test/counting_and_probability/870.json",
+      "benefit_nats": 0.00043903190964028616
+    },
+    {
+      "id": "test/counting_and_probability/731.json",
+      "benefit_nats": -5.788522961373138e-05
+    },
+    {
+      "id": "test/intermediate_algebra/1279.json",
+      "benefit_nats": 0.0013044462725339307
+    },
+    {
+      "id": "test/intermediate_algebra/1898.json",
+      "benefit_nats": 0.0019349745393586835
+    },
+    {
+      "id": "test/algebra/291.json",
+      "benefit_nats": -0.002155843292427781
+    },
+    {
+      "id": "test/geometry/817.json",
+      "benefit_nats": -0.036307046098767864
+    },
+    {
+      "id": "test/counting_and_probability/282.json",
+      "benefit_nats": 0.0030684949583916522
+    },
+    {
+      "id": "test/intermediate_algebra/1405.json",
+      "benefit_nats": 0.0024594944084543784
+    },
+    {
+      "id": "test/precalculus/768.json",
+      "benefit_nats": -0.0008320809707407393
+    },
+    {
+      "id": "test/counting_and_probability/1003.json",
+      "benefit_nats": 0.005214299991273555
+    },
+    {
+      "id": "test/intermediate_algebra/117.json",
+      "benefit_nats": 0.004592359662971168
+    },
+    {
+      "id": "test/algebra/2779.json",
+      "benefit_nats": 0.00040284810750990455
+    },
+    {
+      "id": "test/prealgebra/631.json",
+      "benefit_nats": 0.013184311734385064
+    },
+    {
+      "id": "test/precalculus/96.json",
+      "benefit_nats": 7.085840844332287e-05
+    },
+    {
+      "id": "test/precalculus/398.json",
+      "benefit_nats": -0.014194101819291205
+    },
+    {
+      "id": "test/algebra/824.json",
+      "benefit_nats": -0.0010529917787096544
+    },
+    {
+      "id": "test/prealgebra/874.json",
+      "benefit_nats": 0.02411637119544949
+    },
+    {
+      "id": "test/precalculus/989.json",
+      "benefit_nats": -0.022666616645682904
+    },
+    {
+      "id": "test/intermediate_algebra/955.json",
+      "benefit_nats": 0.0011422364718795684
+    },
+    {
+      "id": "test/precalculus/801.json",
+      "benefit_nats": 0.019141181087399574
+    },
+    {
+      "id": "test/intermediate_algebra/662.json",
+      "benefit_nats": -0.0005486845466709763
+    },
+    {
+      "id": "test/algebra/1349.json",
+      "benefit_nats": 0.02708332220391385
+    },
+    {
+      "id": "test/algebra/2277.json",
+      "benefit_nats": 0.0049930775349406945
+    },
+    {
+      "id": "test/precalculus/826.json",
+      "benefit_nats": 0.002449070291774165
+    },
+    {
+      "id": "test/counting_and_probability/181.json",
+      "benefit_nats": -0.004433694635370203
+    },
+    {
+      "id": "test/precalculus/145.json",
+      "benefit_nats": -0.01924552626755295
+    },
+    {
+      "id": "test/algebra/1796.json",
+      "benefit_nats": -0.00041077474067976755
+    },
+    {
+      "id": "test/algebra/297.json",
+      "benefit_nats": -0.008858598482284034
+    },
+    {
+      "id": "test/intermediate_algebra/1166.json",
+      "benefit_nats": 0.008316623698991223
+    },
+    {
+      "id": "test/intermediate_algebra/964.json",
+      "benefit_nats": 0.005065622746877962
+    },
+    {
+      "id": "test/intermediate_algebra/1197.json",
+      "benefit_nats": -0.012462312636341559
+    },
+    {
+      "id": "test/precalculus/742.json",
+      "benefit_nats": 0.014900303822783621
+    },
+    {
+      "id": "test/intermediate_algebra/90.json",
+      "benefit_nats": 0.0031074415990949237
+    },
+    {
+      "id": "test/precalculus/190.json",
+      "benefit_nats": -0.001381338696720271
+    },
+    {
+      "id": "test/prealgebra/1646.json",
+      "benefit_nats": 0.00951349689737778
+    },
+    {
+      "id": "test/geometry/434.json",
+      "benefit_nats": -0.024986280442172853
+    },
+    {
+      "id": "test/number_theory/928.json",
+      "benefit_nats": 0.002541891699124308
+    },
+    {
+      "id": "test/geometry/283.json",
+      "benefit_nats": -0.00014566276949567504
+    },
+    {
+      "id": "test/precalculus/697.json",
+      "benefit_nats": 0.002188330255853913
+    },
+    {
+      "id": "test/precalculus/681.json",
+      "benefit_nats": -0.05337904348002048
+    },
+    {
+      "id": "test/geometry/183.json",
+      "benefit_nats": -0.005517715846581402
+    },
+    {
+      "id": "test/intermediate_algebra/960.json",
+      "benefit_nats": 0.0010115960301517327
+    },
+    {
+      "id": "test/precalculus/117.json",
+      "benefit_nats": 0.0063787152365316225
+    },
+    {
+      "id": "test/precalculus/1201.json",
+      "benefit_nats": 0.005780859454421295
+    },
+    {
+      "id": "test/intermediate_algebra/1411.json",
+      "benefit_nats": 0.005704728183317324
+    },
+    {
+      "id": "test/geometry/702.json",
+      "benefit_nats": -0.002509774635893889
+    },
+    {
+      "id": "test/precalculus/659.json",
+      "benefit_nats": 0.0010222522412957373
+    },
+    {
+      "id": "test/intermediate_algebra/956.json",
+      "benefit_nats": 0.03117910346653776
+    },
+    {
+      "id": "test/precalculus/1056.json",
+      "benefit_nats": 0.00015387437560234152
+    },
+    {
+      "id": "test/precalculus/986.json",
+      "benefit_nats": 0.0013528095509361439
+    },
+    {
+      "id": "test/precalculus/1281.json",
+      "benefit_nats": -0.006463228867047609
+    },
+    {
+      "id": "test/intermediate_algebra/1467.json",
+      "benefit_nats": 0.0033483957805192314
+    },
+    {
+      "id": "test/precalculus/1146.json",
+      "benefit_nats": 0.00035946143478143627
+    },
+    {
+      "id": "test/intermediate_algebra/183.json",
+      "benefit_nats": 0.0023113301778909046
+    },
+    {
+      "id": "test/precalculus/990.json",
+      "benefit_nats": -0.003628396744997658
+    },
+    {
+      "id": "test/prealgebra/1804.json",
+      "benefit_nats": 0.0002012207263770993
+    },
+    {
+      "id": "test/geometry/686.json",
+      "benefit_nats": -0.003921045301034785
+    },
+    {
+      "id": "test/algebra/892.json",
+      "benefit_nats": 0.005020876324070073
+    },
+    {
+      "id": "test/geometry/65.json",
+      "benefit_nats": 0.0076956339088084386
+    },
+    {
+      "id": "test/intermediate_algebra/1994.json",
+      "benefit_nats": 0.0036604665127110314
+    },
+    {
+      "id": "test/intermediate_algebra/1063.json",
+      "benefit_nats": 0.0017319469681372959
+    },
+    {
+      "id": "test/precalculus/1133.json",
+      "benefit_nats": 0.0021474760230253036
+    },
+    {
+      "id": "test/number_theory/820.json",
+      "benefit_nats": -0.008795478669404368
+    },
+    {
+      "id": "test/geometry/880.json",
+      "benefit_nats": -0.01141852598592773
+    },
+    {
+      "id": "test/precalculus/1202.json",
+      "benefit_nats": -0.0002657624726813987
+    },
+    {
+      "id": "test/intermediate_algebra/582.json",
+      "benefit_nats": 0.010169387260505366
+    },
+    {
+      "id": "test/intermediate_algebra/1350.json",
+      "benefit_nats": 0.028832298826956395
+    },
+    {
+      "id": "test/intermediate_algebra/1510.json",
+      "benefit_nats": -0.014670046514198665
+    },
+    {
+      "id": "test/geometry/965.json",
+      "benefit_nats": 0.011539898651892061
+    },
+    {
+      "id": "test/intermediate_algebra/776.json",
+      "benefit_nats": 0.009300715055391606
+    },
+    {
+      "id": "test/algebra/1814.json",
+      "benefit_nats": -0.00027778701607737884
+    },
+    {
+      "id": "test/intermediate_algebra/1779.json",
+      "benefit_nats": 0.0012408200780288647
+    },
+    {
+      "id": "test/algebra/351.json",
+      "benefit_nats": -0.02950875924127489
+    },
+    {
+      "id": "test/geometry/172.json",
+      "benefit_nats": -0.00044218521344018425
+    },
+    {
+      "id": "test/prealgebra/1187.json",
+      "benefit_nats": -0.00011900058584567597
+    },
+    {
+      "id": "test/prealgebra/1930.json",
+      "benefit_nats": -0.056725001265204716
+    },
+    {
+      "id": "test/intermediate_algebra/1806.json",
+      "benefit_nats": 0.00015549302775333656
+    },
+    {
+      "id": "test/algebra/686.json",
+      "benefit_nats": 0.0026857878569005404
+    },
+    {
+      "id": "test/intermediate_algebra/345.json",
+      "benefit_nats": 0.0008250114452466473
+    },
+    {
+      "id": "test/intermediate_algebra/1462.json",
+      "benefit_nats": 0.00011802563102313463
+    },
+    {
+      "id": "test/intermediate_algebra/1930.json",
+      "benefit_nats": 0.00447533649692769
+    },
+    {
+      "id": "test/geometry/826.json",
+      "benefit_nats": -0.02821138900246173
+    },
+    {
+      "id": "test/intermediate_algebra/1454.json",
+      "benefit_nats": 0.014530858555896635
+    },
+    {
+      "id": "test/intermediate_algebra/1849.json",
+      "benefit_nats": 0.0058585960649904095
+    },
+    {
+      "id": "test/intermediate_algebra/754.json",
+      "benefit_nats": 0.0016432889959560465
+    },
+    {
+      "id": "test/algebra/972.json",
+      "benefit_nats": 0.0014983556259045151
+    },
+    {
+      "id": "test/precalculus/1172.json",
+      "benefit_nats": 0.004012651135725944
+    },
+    {
+      "id": "test/geometry/465.json",
+      "benefit_nats": -0.007288071934115847
+    }
+  ]
+}

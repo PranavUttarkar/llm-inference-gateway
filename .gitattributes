@@ -1,6 +1,9 @@
-# Preserve captured evidence bytes across Windows and Linux checkouts.
+*.py text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+
+# Scientific captures are byte-addressed: never rewrite their line endings.
 results/** -text
 docs/images/** -text
-
-# Preserve the generated workload bytes covered by its provenance hash.
 workloads/prompts-1536.json* -text
+reports/** -text

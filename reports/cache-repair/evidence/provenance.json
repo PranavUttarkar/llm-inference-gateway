@@ -1,0 +1,29 @@
+{
+  "study": "cache-repair-numerical-pilot",
+  "release": 1,
+  "experimental_status": "exploratory completed; unchanged gate stops expansion",
+  "gpu_questions": 96,
+  "cpu_development_questions": 4,
+  "gpu_spec_sha256": "e5df7557b6783acb7f23334ef1f75e2f58b73cee3cba1dc624540a1706d9d3fe",
+  "original_result_archive_sha256": "d5ab00b97c6eb5499ec335d6a7fa1225908a56958d111a5af48b6d8cb2324a12",
+  "original_transfer_archive_sha256": "e83910670e245743421cab2588647a0eaf23ac4a3f6cbea3272d934483ef4414",
+  "source_layout": {
+    "cpu": "evidence/source-cpu",
+    "gpu0": "evidence/source-gpu",
+    "gpu1": "evidence/source-gpu",
+    "smoke": "evidence/source-gpu"
+  },
+  "source_note": "Executed source bytes preserved. Current maintained modules may differ; raw manifest source hashes refer to these snapshots.",
+  "assets": {
+    "quantizer_sources": "KVarN commit 7586257f1c632e63187bfacbbe21ccb51540f7b3; Apache-2.0 LICENSE included",
+    "model": "Pinned public DeepSeek-R1-Distill-Qwen-1.5B; MIT model card; weights excluded",
+    "dataset": "Pinned HuggingFaceH4/MATH-500; exact 400-token excerpts recorded as token IDs in frozen specs; dataset card identifies the original MATH/prm800k source"
+  },
+  "exclusions": [
+    "model weights",
+    "private execution journal",
+    "draft Markdown",
+    "SSH identities and host login",
+    "unscored proposed experiment plans"
+  ]
+}

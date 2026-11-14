@@ -1,0 +1,113 @@
+{
+  "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+  "model_revision": "ad9f0ae0864d7fbcd1cd905e3c6c5b069cc8b562",
+  "model_files": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "LICENSE"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "config.json"
+    },
+    {
+      "rfilename": "figures/benchmark.jpg"
+    },
+    {
+      "rfilename": "generation_config.json"
+    },
+    {
+      "rfilename": "model.safetensors"
+    },
+    {
+      "rfilename": "tokenizer.json"
+    },
+    {
+      "rfilename": "tokenizer_config.json"
+    }
+  ],
+  "config": {
+    "architectures": [
+      "Qwen2ForCausalLM"
+    ],
+    "attention_dropout": 0.0,
+    "bos_token_id": 151643,
+    "eos_token_id": 151643,
+    "hidden_act": "silu",
+    "hidden_size": 1536,
+    "initializer_range": 0.02,
+    "intermediate_size": 8960,
+    "max_position_embeddings": 131072,
+    "max_window_layers": 21,
+    "model_type": "qwen2",
+    "num_attention_heads": 12,
+    "num_hidden_layers": 28,
+    "num_key_value_heads": 2,
+    "rms_norm_eps": 1e-06,
+    "rope_theta": 10000,
+    "sliding_window": 4096,
+    "tie_word_embeddings": false,
+    "torch_dtype": "bfloat16",
+    "transformers_version": "4.44.0",
+    "use_cache": true,
+    "use_mrope": false,
+    "use_sliding_window": false,
+    "vocab_size": 151936
+  },
+  "kvarn_commit": "7586257f1c632e63187bfacbbe21ccb51540f7b3",
+  "kvarn_paths": [
+    "KVARN_MLA_BACKEND_SPEC.md",
+    "KVARN_MLA_STATUS.md",
+    "csrc/quantization/w8a8/fp8/amd/quant_utils.cuh",
+    "csrc/quantization/w8a8/fp8/nvidia/quant_utils.cuh",
+    "imgs/kvarn_pipeline.gif",
+    "kvarn_mla_decode_ref.py",
+    "kvarn_mla_dequant_kernel.py",
+    "kvarn_mla_tile_validate.py",
+    "kvarn_mla_tilepack.py",
+    "scripts_kvarn_dense/prefix_cache_repro.py",
+    "scripts_kvarn_dense/prefix_stress.py",
+    "scripts_kvarn_dense/run_validation.sh",
+    "scripts_kvarn_mla/batch_invariance.py",
+    "scripts_kvarn_mla/capture_and_probe.py",
+    "scripts_kvarn_mla/combined_eval.py",
+    "scripts_kvarn_mla/diag_aime.py",
+    "scripts_kvarn_mla/diag_order.py",
+    "scripts_kvarn_mla/diverge_batch.py",
+    "scripts_kvarn_mla/diverge_test.py",
+    "scripts_kvarn_mla/eval_aime25_glm.py",
+    "scripts_kvarn_mla/fresh_one.py",
+    "scripts_kvarn_mla/kvarn_mla_grouped_decode.py",
+    "scripts_kvarn_mla/kvarn_mla_scatter_store.py",
+    "scripts_kvarn_mla/kvarn_mla_splitk_decode.py",
+    "scripts_kvarn_mla/kvarn_mla_tile_decode_kernel.py",
+    "scripts_kvarn_mla/microbench_decode.py",
+    "scripts_kvarn_mla/microbench_graphed.py",
+    "scripts_kvarn_mla/profile_kvarn_mla.py",
+    "scripts_kvarn_mla/profile_worker.py",
+    "scripts_kvarn_mla/run_kvarn_mla.py",
+    "scripts_kvarn_mla/sparse_gather_validate.py",
+    "scripts_kvarn_mla/test_fp8_dot.py",
+    "scripts_kvarn_mla/test_fwht.py",
+    "tests/kernels/quant_utils.py",
+    "vllm/model_executor/layers/quantization/kvarn/__init__.py",
+    "vllm/model_executor/layers/quantization/kvarn/config.py",
+    "vllm/model_executor/layers/quantization/kvarn/mla_probe.py",
+    "vllm/model_executor/layers/quantization/kvarn/mla_quant.py",
+    "vllm/model_executor/layers/quantization/kvarn/sinkhorn.py",
+    "vllm/model_executor/layers/quantization/utils/quant_utils.py",
+    "vllm/v1/attention/backends/kvarn_attn.py",
+    "vllm/v1/attention/backends/mla/flashmla_sparse_kvarn.py",
+    "vllm/v1/attention/ops/kvarn_decode.py",
+    "vllm/v1/attention/ops/kvarn_mla_attn_proto.py",
+    "vllm/v1/attention/ops/kvarn_mla_paged_proto.py",
+    "vllm/v1/attention/ops/kvarn_store.py",
+    "vllm/v1/attention/ops/triton_kvarn_decode.py",
+    "vllm/v1/attention/ops/triton_kvarn_sinkhorn.py"
+  ],
+  "tree_truncated": false
+}

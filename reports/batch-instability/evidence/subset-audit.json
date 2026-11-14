@@ -1,0 +1,39 @@
+{
+  "purpose": "first_divergence_vs_low_margin_subset",
+  "scientific_evidence": false,
+  "usable_question_rows": 0,
+  "events": [],
+  "exclusions": [],
+  "coverage": {
+    "0.1": {
+      "first_divergence_events": 0,
+      "inside": 0,
+      "outside": 0,
+      "inside_fraction": null,
+      "distinct_questions_with_outside_flips": 0,
+      "outside_question_ids": []
+    },
+    "0.25": {
+      "first_divergence_events": 0,
+      "inside": 0,
+      "outside": 0,
+      "inside_fraction": null,
+      "distinct_questions_with_outside_flips": 0,
+      "outside_question_ids": []
+    },
+    "0.5": {
+      "first_divergence_events": 0,
+      "inside": 0,
+      "outside": 0,
+      "inside_fraction": null,
+      "distinct_questions_with_outside_flips": 0,
+      "outside_question_ids": []
+    }
+  },
+  "gate": {
+    "experiment_1_eligible_for_further_design": false,
+    "reason": "no_usable_real_traces"
+  },
+  "interpretation": "Primary set: lowest 25% baseline full-trace gaps, including ties; 10/50% are sensitivity checks. Only first divergence shares the same generated prefix. Repeated variants are not independent questions. Outside this rank budget does not mean outside a small-margin regime or prove usefulness. The retrospective set is not an online branch-selection policy.",
+  "input_sha256": null
+}

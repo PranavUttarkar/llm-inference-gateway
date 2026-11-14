@@ -1,0 +1,30 @@
+{
+  "python": "3.10.12",
+  "torch": "2.7.1+cu128",
+  "transformers": "4.49.0",
+  "cuda_runtime": "12.8",
+  "cuda_available": true,
+  "devices": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 4090",
+      "capability": [
+        8,
+        9
+      ],
+      "total_memory_bytes": 25250627584
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA GeForce RTX 4090",
+      "capability": [
+        8,
+        9
+      ],
+      "total_memory_bytes": 25250627584
+    }
+  ],
+  "nvidia_smi": "Sat Nov 14 01:21:57 2026       \n+-----------------------------------------------------------------------------------------+\n| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |\n+-----------------------------------------+------------------------+----------------------+\n| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n|                                         |                        |               MIG M. |\n|=========================================+========================+======================|\n|   0  NVIDIA GeForce RTX 4090        Off |   00000000:00:08.0 Off |                  Off |\n| 30%   38C    P2             64W /  450W |     495MiB /  24564MiB |      0%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n|   1  NVIDIA GeForce RTX 4090        Off |   00000000:00:0A.0 Off |                  Off |\n| 30%   38C    P2             51W /  450W |     495MiB /  24564MiB |      8%      Default |\n|                                         |                        |                  N/A |\n+-----------------------------------------+------------------------+----------------------+\n\n+-----------------------------------------------------------------------------------------+\n| Processes:                                                                              |\n|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n|        ID   ID                                                               Usage      |\n|=========================================================================================|\n|    0   N/A  N/A            2676      C   python                                  486MiB |\n|    1   N/A  N/A            2676      C   python                                  486MiB |\n+-----------------------------------------------------------------------------------------+\n",
+  "failures": [],
+  "ready": true
+}
