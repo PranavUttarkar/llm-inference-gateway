@@ -1,0 +1,7 @@
+# Install/verify a Blackwell-compatible PyTorch build separately.
+transformers==4.49.0
+tokenizers==0.21.0
+accelerate==1.3.0
+huggingface-hub==0.34.4
+safetensors==0.5.3
+numpy==2.1.3
