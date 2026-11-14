@@ -30,3 +30,9 @@ results/7b-tensor-parallel/*
 !results/7b-tensor-parallel/**
 results/7b-sequence-capacity/*
 !results/7b-sequence-capacity/**
+
+# Local research journals and environments; publish completed studies under reports/.
+RESEARCH.md
+research.md
+.venv/
+.pytest_cache/
