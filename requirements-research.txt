@@ -1,0 +1,5 @@
+# Offline evidence reproduction and statistical validation. No model weights needed.
+numpy==2.1.3
+scipy==1.15.2
+scikit-learn==1.6.1
+matplotlib==3.10.1

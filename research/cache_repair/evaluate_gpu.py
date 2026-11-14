@@ -8,19 +8,14 @@ from .numerical_gate import evaluate
 from .effect_reporting import describe
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--spec', type=Path, required=True)
-    parser.add_argument('--directories', type=Path, nargs='+', required=True)
-    parser.add_argument('--output', type=Path, required=True)
-    args = parser.parse_args()
-    frozen = json.loads(args.spec.read_text())
+def evaluate_cohort(spec_path, directories):
+    frozen = json.loads(Path(spec_path).read_text())
     spec = frozen['specification']
     if digest(spec) != frozen['sha256']:
         raise ValueError('global specification hash mismatch')
     expected = {q['id']: q['token_sha256'] for q in spec['questions']}
     rows, devices, sources = [], [], []
-    for directory in args.directories:
+    for directory in map(Path, directories):
         m = json.loads((directory/'manifest.json').read_text())
         shard = m['specification']
         if m['status'] != 'complete' or digest(shard) != m['spec_sha256']:
@@ -46,6 +41,16 @@ def main():
     result['robustness_and_secondary'] = describe(rows)
     result.update(global_spec_sha256=frozen['sha256'], device_strata=devices,
                   individual_effects=[{'id': r['question_id'], 'benefit_nats': -r['paired_primary_delta']} for r in rows])
+    return result
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--spec', type=Path, required=True)
+    parser.add_argument('--directories', type=Path, nargs='+', required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    args = parser.parse_args()
+    result = evaluate_cohort(args.spec, args.directories)
     with args.output.open('x', encoding='utf-8') as stream:
         json.dump(result, stream, indent=2, allow_nan=False)
         stream.write('\n')
