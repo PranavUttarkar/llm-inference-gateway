@@ -36,3 +36,6 @@ RESEARCH.md
 research.md
 .venv/
 .pytest_cache/
+
+!docs/serving.md
+!docs/research-workflow.md
