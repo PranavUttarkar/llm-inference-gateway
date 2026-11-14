@@ -136,6 +136,7 @@ confirmation in the target regime.
 ```sh
 python -m unittest discover -s tests
 python -m research.cache_repair.reproduce
+python scripts/verify_research.py
 python scripts/verify_results.py
 ```
 

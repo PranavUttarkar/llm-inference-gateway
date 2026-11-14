@@ -10,7 +10,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Gateway and benchmark tests
+          cache: pip
+          cache-dependency-path: requirements-research.txt
+      - name: Install statistical analysis dependencies
+        run: python -m pip install -r requirements-research.txt
+      - name: Gateway, benchmark and research tests
         run: python -m unittest discover -s tests -v
-      - name: Verify published evidence
+      - name: Verify published serving evidence
         run: python scripts/verify_results.py
+      - name: Reproduce research evidence and check publication links
+        run: python scripts/verify_research.py
+
+  cpu-inference-controls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: research/cache_repair/requirements-gpu.txt
+      - name: Install CPU inference environment
+        run: |
+          python -m pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r research/cache_repair/requirements-gpu.txt
+      - name: Check independent cache rebuilds on a small random transformer
+        run: python -m unittest tests.test_numerical_gate -v

@@ -4,6 +4,7 @@ import copy
 import hashlib
 import json
 import math
+import statistics
 from pathlib import Path
 
 from research.batch_probe.workload import digest
@@ -99,6 +100,25 @@ def reproduce(study=DEFAULT_STUDY):
     cpu = summarize(study/'evidence/cpu')
     if cpu != json.loads((study/'evidence/cpu-analysis.json').read_text()):
         raise ValueError('recomputed CPU analysis differs from published result')
+    rows = [r for label in ('gpu0', 'gpu1') for r in manifests[label]['results']]
+    descriptive = {
+        'mean_kl_by_arm': {a: statistics.mean(r['arms'][a]['mean_kl_nats'] for r in rows) for a in rows[0]['arms']},
+        'sd_primary_benefit_nats': statistics.stdev(-r['paired_primary_delta'] for r in rows),
+        'logical_bytes_per_prefix_token': {
+            a: statistics.mean(r['logical_packed_bytes'][a]/global_spec['prefix_tokens'] for r in rows)
+            for a in rows[0]['logical_packed_bytes']},
+        'sum_case_wall_seconds': sum(r['wall_seconds'] for r in rows),
+        'sum_smoke_case_wall_seconds': sum(r['wall_seconds'] for r in manifests['smoke']['results']),
+        'peak_allocated_bytes_max': max(r['diagnostic_peak_allocated_bytes'] for r in rows),
+        'peak_reserved_bytes_max': max(r['diagnostic_peak_reserved_bytes'] for r in rows),
+        'launch_utc': (study/'evidence/environment/launch-utc.txt').read_text().strip(),
+        'finish_utc': (study/'evidence/environment/finish-utc.txt').read_text().strip(),
+        'manifest_sha256': {label: hashlib.sha256((study/'evidence'/label/'manifest.json').read_bytes()).hexdigest()
+                            for label in ('gpu0', 'gpu1')},
+        'raw_layer0_history_error_max': max(r['raw_damaged_kv_vs_stream_reference'][0][k]
+            for r in rows for k in ('k_relative_squared_l2', 'v_relative_squared_l2'))}
+    if descriptive != json.loads((study/'evidence/descriptive.json').read_text()):
+        raise ValueError('recomputed arm/cost summaries differ from published result')
     return {'verified_files': count, 'gpu': result, 'cpu': cpu}
 
 

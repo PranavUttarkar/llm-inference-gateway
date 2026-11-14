@@ -1,4 +1,4 @@
-import copy
+import importlib.util
 import unittest
 
 from research.cache_repair.numerical_gate import evaluate
@@ -30,6 +30,8 @@ class NumericalGateTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             evaluate([row(0), row(0)])
 
+    @unittest.skipUnless(all(importlib.util.find_spec(name) for name in ('torch', 'transformers')),
+                         'CPU inference extras required; exercised separately in CI')
     def test_real_transformer_independent_rebuilds_and_probe_inputs(self):
         import torch
         from transformers import Qwen2Config, Qwen2ForCausalLM
